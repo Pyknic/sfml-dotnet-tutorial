@@ -1,63 +1,20 @@
 # Asteroids CSharp
-Here are the instructions for the Asteroids C#-lab.
+This is a tutorial series where you get to create a simple game using C#, .Net Core and SFML.Sharp.
 
-### Step 1
-```bash
-mkdir Asteroids
-cd Asteroids
-dotnet new console
-```
+## Instructions
+The step-by-step instructions for this lab [can be found here](/docs/README.md).
 
-### Step 2
-```bash
-dotnet add package CSFML --version 2.5.0
-dotnet add package SFML.Net --version 2.5.0
-```
+## License
+Copyright 2020 Emil Forslund
 
-### Step 3
-```bash
-dotnet build
-```
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-### Step 4
-```bash
-dotnet run
-```
+http://www.apache.org/licenses/LICENSE-2.0
 
-It should print out `Hello World!` in the console.
-
-### Step 5
-Open the file `Program.cs` in a text editor (Notepad++ or Brackets). Change it to the following:
-
-```csharp
-using System;
-using SFML.System;
-using SFML.Window;
-using SFML.Graphics;
-
-namespace asteroids_csharp
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            using var window = new RenderWindow(new VideoMode(800, 600), "Hello SFML");
-            window.Closed += (s,e) => window.Close();
-
-            while (window.IsOpen) {
-                window.DispatchEvents();
-                window.Clear(new Color(131, 197, 235));
-                window.Display();
-            }
-        }
-    }
-}
-
-
-```
-
-Now, to run your application:
-```bash
-dotnet build
-dotnet run
-```
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
