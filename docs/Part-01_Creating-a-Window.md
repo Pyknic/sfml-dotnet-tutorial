@@ -51,8 +51,6 @@ namespace asteroids_csharp
         }
     }
 }
-
-
 ```
 
 Now, to run your application:
