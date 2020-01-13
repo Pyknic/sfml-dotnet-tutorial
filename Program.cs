@@ -13,15 +13,20 @@ namespace asteroids_csharp
             using var window = new RenderWindow(new VideoMode(800, 600), "Hello SFML");
             window.Closed += (s,e) => window.Close();
             
-            var shape = new RectangleShape(new Vector2f(20, 100));
-            shape.Position = new Vector2f(20, 300);
-            shape.FillColor = new Color(66, 121, 153);
-            shape.Origin = shape.Size * 0.5f;
-            
-            var shape2 = new RectangleShape(new Vector2f(20, 100));
-            shape2.Position = new Vector2f(800 - 20, 300);
-            shape2.FillColor = new Color(66, 121, 153);
-            shape2.Origin = shape2.Size * 0.5f;
+//            var shape = new RectangleShape(new Vector2f(20, 100));
+//            shape.Position = new Vector2f(20, 300);
+//            shape.FillColor = new Color(66, 121, 153);
+//            shape.Origin = shape.Size * 0.5f;
+//            
+//            var shape2 = new RectangleShape(new Vector2f(20, 100));
+//            shape2.Position = new Vector2f(800 - 20, 300);
+//            shape2.FillColor = new Color(66, 121, 153);
+//            shape2.Origin = shape2.Size * 0.5f;
+
+            var batLeft = new Bat(new Vector2f(20, 300), Keyboard.Key.W, Keyboard.Key.S);
+            var batRight = new Bat(new Vector2f(800 - 20, 300), Keyboard.Key.Up, Keyboard.Key.Down);
+            batLeft.OnEnter(window);
+            batRight.OnEnter(window);
             
             var ball = new CircleShape(10.0f);
             ball.Position = new Vector2f(400, 300);
@@ -88,14 +93,11 @@ namespace asteroids_csharp
                 window.DispatchEvents();
                 window.Clear(new Color(131, 197, 235));
                 
-                if (moveUp) shape.Position -= new Vector2f(0, 150.0f) * deltaTime;
-                if (moveDown) shape.Position += new Vector2f(0, 150.0f) * deltaTime;
-                if (move2Up) shape2.Position -= new Vector2f(0, 150.0f) * deltaTime;
-                if (move2Down) shape2.Position += new Vector2f(0, 150.0f) * deltaTime;
+                batLeft.OnUpdate(deltaTime);
+                batRight.OnUpdate(deltaTime);
 
                 ball.Position += ballVelocity * deltaTime;
-                if (ball.GetGlobalBounds().Intersects(shape.GetGlobalBounds()) 
-                ||  ball.GetGlobalBounds().Intersects(shape2.GetGlobalBounds()))
+                if (batLeft.Intersects(ball) || batRight.Intersects(ball))
                 {
                     ballVelocity.X *= -1.0f;
                 }
@@ -118,8 +120,8 @@ namespace asteroids_csharp
                     ballVelocity = new Vector2f(150.0f, 150.0f);
                 }
 
-                window.Draw(shape);
-                window.Draw(shape2);
+                batLeft.OnRender(window);
+                batRight.OnRender(window);
                 window.Draw(ball);
                 window.Draw(gui);
                 
