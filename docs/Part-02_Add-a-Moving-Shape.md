@@ -1,4 +1,4 @@
-﻿# Add a Moving Shape
+﻿# Part 2: Add a Moving Shape
 
 In the previous part we created a window with a calm blue background. In this part, we will add a moving rectangle to it.
 ```csharp

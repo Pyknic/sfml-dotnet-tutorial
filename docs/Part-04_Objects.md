@@ -1,4 +1,4 @@
-﻿# Objects
+﻿# Part 4: The Bat Class
 In [the previous part](Part-03_Game-of-Pong.md) we made a simple game of Pong. As you might have noticed, we had a lot of duplicated code. We also specified the same numbers, like the size of the screen, multiple times. This way of programming makes the game error-prone, so we should try to avoid it. In this part we will refactor ("reorganize") the code in the previous part to adress those issues.
 
 ### Step 1: Create a Class
@@ -208,6 +208,3 @@ batRight.OnRender(window);
 ```
 
 The game should functionally be pretty much the same, but now we have a cleaner separation.
-
-### Step 7: Create a Ball Class
-Following the steps above you should be able to refactor the `ball` instance into its own class as well.

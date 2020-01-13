@@ -1,4 +1,4 @@
-﻿# Creating a Window
+﻿# Part 1: Creating a Window
 
 ### Step 1
 ```bash

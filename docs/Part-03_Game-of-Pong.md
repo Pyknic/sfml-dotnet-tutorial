@@ -1,4 +1,4 @@
-﻿# Game of Pong
+﻿# Part 3: Game of Pong
 In [the previous part](Part-02_Add-a-Moving-Shape.md) we made it possible for the player to move a rectangle up and down using keyboard inputs. In this part, we will turn that into a game of Pong by adding a second bat and a ball.
 
 ### Step 1: First Bat
