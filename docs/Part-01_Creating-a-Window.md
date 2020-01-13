@@ -40,13 +40,14 @@ namespace asteroids_csharp
     {
         static void Main(string[] args)
         {
-            using var window = new RenderWindow(new VideoMode(800, 600), "Hello SFML");
-            window.Closed += (s,e) => window.Close();
+            using (var window = new RenderWindow(new VideoMode(800, 600), "Hello SFML")) {
+                window.Closed += (s,e) => window.Close();
 
-            while (window.IsOpen) {
-                window.DispatchEvents();
-                window.Clear(new Color(131, 197, 235));
-                window.Display();
+                while (window.IsOpen) {
+                    window.DispatchEvents();
+                    window.Clear(new Color(131, 197, 235));
+                    window.Display();
+                }
             }
         }
     }
